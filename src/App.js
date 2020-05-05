@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Cards, Chart, CountryPicker } from './components';
 import styles from './App.module.css';
+import cx from 'classnames';
 
 import { fetchData } from './api';
 
@@ -27,8 +28,8 @@ class App extends React.Component {
 		const { data, country } = this.state;
 
 		return (
-			<div className={styles.container}>
-				<img src={'https://i.ibb.co/7QpKsCX/image.png'} alt='covid-19' />
+			<div className={cx(styles.container, styles.img)}>
+				<img className={styles.image} src={'https://i.ibb.co/7QpKsCX/image.png'} alt='covid-19' />
 				<Cards data={data} />
 				<CountryPicker handleCountryChange={this.handleCountryChange} />
 				<Chart data={data} country={country} />
